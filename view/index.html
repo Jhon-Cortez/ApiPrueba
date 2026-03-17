@@ -28,18 +28,14 @@
             <label>Buscar por ID</label>
             <input id="idFilter" type="text" class="form-control">
 
-            <table class="table table-striped mt-3">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Title</th>
-                        <th>Price</th>
-                        <th>Delete</th>
-                        <th>Update</th>
-                    </tr>
-                </thead>
+            <select id="entitySelect" class="form-select mb-2"></select>
+
+            <table class="table">
+                <thead id="table-head"></thead>
                 <tbody id="container"></tbody>
             </table>
+
+            <div id="dynamicForm"></div>
         </div>
     </section>
 

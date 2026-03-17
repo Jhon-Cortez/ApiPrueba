@@ -1,16 +1,32 @@
-import ProductViewModel from "./viewmodel/ProductViewModel.js";
+import EntityViewModel from "./viewmodel/EntityViewModel.js";
 
-const app = new ProductViewModel();
+const app = new EntityViewModel();
 
 document.addEventListener("DOMContentLoaded", () => {
     app.init();
 
-    //Buscar ID
-    document.getElementById("idFilter").addEventListener("input", () => app.findById());
+    const entitySelect = document.getElementById("entitySelect");
+    if (entitySelect) {
+        entitySelect.addEventListener("change", e => app.changeEntity(e.target.value));
+    }
 
-    //Guardar una actualizacion
-    document.getElementById("btnSave").addEventListener("click", () => app.updateProduct());
+    const idFilter = document.getElementById("idFilter");
+    if (idFilter) {
+        idFilter.addEventListener("input", () => app.findById());
+    }
 
-    //Creacion de un nuevo registro 
-    document.getElementById("btnCreate").addEventListener("click", () => app.createProduct());
+    const btnSave = document.getElementById("btnSave");
+    if (btnSave) {
+        btnSave.addEventListener("click", () => app.update());
+    }
+
+    const btnAdd = document.getElementById("btnAddProduct");
+    if (btnAdd) {
+        btnAdd.addEventListener("click", () => app.showCreateForm());
+    }
+
+    const btnCreate = document.getElementById("btnCreate");
+    if (btnCreate) {
+        btnCreate.addEventListener("click", () => app.create());
+    }
 });
